@@ -15,6 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav>
         <a href="./frontend/registro.html">Registrar</a>
         <a href="./frontend/login.html">Ingresar</a>
+        <a href="./frontend/nuevopost.php">Nuevo post</a>
     </nav>
 </body>
 </html>
