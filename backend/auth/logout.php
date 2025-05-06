@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Código de IA
+// Código de IA (https://chatgpt.com/)
 // Limpia las cookies y la sesión
 // Da la posibilidad al usuario de cerrar sesión
 
