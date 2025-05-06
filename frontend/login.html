@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <form action="../backend/auth/login.php" method="POST">
-        <input type="email" name="correo" placeholder="correo@ejemplo.com">
-        <br>
-        <input type="password" name="contraseña" placeholder="********">
-        <br>
-        <button>Registrar</button>
-    </form>
-</body>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <title>Login</title>
+    </head>
+
+    <body>
+        <header>
+            <h1 onclick="window.location.href = '../index.php'">Twig</h1>
+            <span>Ingresa tu correo y contraseña</span>
+        </header>
+        <div class="formulario">
+            <h2>Login</h2>
+            <form action="../backend/auth/login.php" method="POST">
+                <input type="email" name="correo" placeholder="correo@ejemplo.com" required>
+                <input type="password" name="contraseña" placeholder="********" required>
+                <div class="formulario-btns">
+                    <button class="btn-primary">Ingresar</button>
+                    <a href="./registro.html">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    </body>
+    </body>
+
 </html>

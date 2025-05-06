@@ -21,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if (password_verify($contraseña, $usuario['contraseña'])) {
             // Guardar datos en sesión
             $_SESSION['usuario'] = $usuario['nombre'];
-            echo "Inicio de sesión exitoso. ¡Bienvenido, " . htmlspecialchars($usuario['nombre']) . "!";
-            // Redirigir si deseas: header("Location: dashboard.php");
-        } else {
+            $_SESSION['flash'] = "Inicio de sesión exitoso.";
+            header("Location: ../../index.php");
+        } else {    
             echo "Contraseña incorrecta.";
         }
     } else {

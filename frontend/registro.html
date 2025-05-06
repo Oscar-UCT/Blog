@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
     <title>Registro</title>
 </head>
 <body>
-    <form action="../backend/auth/registro.php" method="POST">
-        <input type="text" name="usuario" placeholder="Usuario">
-        <br>
-        <input type="email" name="correo" placeholder="correo@ejemplo.com">
-        <br>
-        <input type="password" name="contraseña" placeholder="********">
-        <br>
-        <button>Registrar</button>
-    </form>
+    <header>
+        <h1 onclick="window.location.href = '../index.php'">Twig</h1>
+        <span>Completa el formulario de registro</span>
+    </header>
+    <div class="formulario">
+        <h2>Registro</h2>
+        <form action="../backend/auth/registro.php" method="POST">
+            <input type="text" name="usuario" placeholder="Usuario">
+            <input type="email" name="correo" placeholder="correo@ejemplo.com">
+            <input type="password" name="contraseña" placeholder="********">
+            <button class="btn-primary">Registrar</button>
+        </form>
+    </div>
 </body>
 </html>

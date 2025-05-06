@@ -1,35 +1,33 @@
 <?php
+require "../config/conexión.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $titulo = trim($_POST["usuario"] ?? "");
-    $cuerpo = $_POST["contraseña"] ?? "";
-    $correo = filter_var($_POST["correo"] ?? "", FILTER_VALIDATE_EMAIL);
+    $titulo = trim($_POST["titulo"] ?? "");
+    $cuerpo = $_POST["cuerpo"] ?? "";
+    $autor = $_POST["autor"] ?? "";
 
-    if (!$usuario || !$contraseña || !$correo) {
+    if (!$titulo || !$cuerpo || !$autor) {
         die("Datos inválidos.");
     }
 
-    $stmt = $conexión->prepare("SELECT usuario_id FROM usuarios WHERE nombre = ? OR correo = ? LIMIT 1");
-    $stmt->bind_param("ss", $usuario, $correo);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->fetch_assoc()) {
-        die("Nombre de usuario o correos ya tomados.");
+    $stmt = $conexión->prepare("INSERT INTO posts (titulo, cuerpo, autor) VALUES (?, ?, ?)");
+    if (!$stmt) {
+        die("Error al preparar la consulta: " . $conexión->error);
     }
 
-    $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
+    $stmt->bind_param("sss", $titulo, $cuerpo, $autor);
 
-    $stmt = $conexión->prepare("INSERT INTO Usuarios (nombre, correo, contraseña) VALUES (?, ?, ?)");
-    try
-    {
-        $stmt->bind_param("sss", $usuario, $correo, $contraseñaHash);
-        $stmt->execute();
-        header("Location: ../../index.php");
-    } catch (Exception $e)
-    {
-        die("Registro fallido: ".$e->getMessage());
+    if ($stmt->execute()) {
+        echo "Post guardado correctamente.";
+    } else {
+        echo "Error al guardar el post: " . $stmt->error;
     }
+
+    $stmt->close();
+    $conexión->close();
 }
+
 else
 {
     die("Método inválido");
