@@ -1,8 +1,7 @@
 <?php
 session_start();
 require "../config/conexión.php";
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = trim($_POST["correo"]) ?? "";
     $contraseña = $_POST["contraseña"] ?? "";
 
@@ -22,11 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             // Guardar datos en sesión
             $_SESSION['usuario'] = $usuario['nombre'];
             header("Location: ../../index.php");
-        } else {    
+        } else {
             echo "Contraseña incorrecta.";
         }
     } else {
         echo "Correo no registrado.";
     }
 }
-?>

@@ -1,7 +1,6 @@
 <?php
 require "../config/conexión.php";
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Limpieza de valores
     $usuario = trim($_POST["usuario"] ?? "");
     $contraseña = $_POST["contraseña"] ?? "";
@@ -26,18 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
 
     $stmt = $conexión->prepare("INSERT INTO Usuarios (nombre, correo, contraseña) VALUES (?, ?, ?)");
-    try
-    {
+    try {
         $stmt->bind_param("sss", $usuario, $correo, $contraseñaHash);
         $stmt->execute();
         header("Location: ../../index.php");
-    } catch (Exception $e)
-    {
-        die("Registro fallido: ".$e->getMessage());
+    } catch (Exception $e) {
+        die("Registro fallido: " . $e->getMessage());
     }
-}
-else
-{
+} else {
     die("Método inválido");
 }
-?>

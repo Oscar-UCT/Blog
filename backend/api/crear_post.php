@@ -1,8 +1,7 @@
 <?php
 require "../config/conexión.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = trim($_POST["titulo"] ?? "");
     $cuerpo = $_POST["cuerpo"] ?? "";
     $autor = $_POST["autor"] ?? "";
@@ -28,10 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     // Liberación de recursos
     $stmt->close();
     $conexión->close();
-}
-
-else
-{
+} else {
     die("Método inválido");
 }
-?>
