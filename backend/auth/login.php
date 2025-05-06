@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if (password_verify($contraseña, $usuario['contraseña'])) {
             // Guardar datos en sesión
             $_SESSION['usuario'] = $usuario['nombre'];
-            $_SESSION['flash'] = "Inicio de sesión exitoso.";
             header("Location: ../../index.php");
         } else {    
             echo "Contraseña incorrecta.";

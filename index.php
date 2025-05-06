@@ -2,7 +2,7 @@
 require "./backend/config/conexión.php";
 
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+    session_start(); // La sesión se debe iniciar en cada módulo
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./frontend/assets/css/main.css">
     <script defer src="./frontend/assets/js/script.js"></script>
-    <title>Document</title>
+    <title>Twig</title>
 </head>
 
 <body>
@@ -21,6 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <h1>Twig</h1>
         <a href="./frontend/nuevopost.php" class="btn-primary">Postear</a>
         <div class="header-derecha">
+            <!-- Muestra el nombre si está ingresado, muestra botón para ingresar si no -->
             <?php if (isset($_SESSION["usuario"])): ?>
                 <div id="header-usuario">
                     <img src="./frontend/assets/imgs/user-icon-white.png" alt="user image" style="width:20px; height:20px; vertical-align:middle; border-radius:50%;">

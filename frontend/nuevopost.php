@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
     if (!isset($_SESSION["usuario"]))
     {
-        header("Location: ./login.html");
+        header("Location: ./login.html"); // Asegura que el usuario no pueda postear sin una cuenta
     }
 }
 ?>
@@ -14,7 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <title>Nuevo post</title>
+    <title>Twig • Nuevo post</title>
 </head>
 <body>
     <header>

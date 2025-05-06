@@ -1,3 +1,4 @@
+// Funcionalidad para mostrar y ocultar el botón de cerrar sesión
 const logoutBtn = document.getElementById("logout-btn");
 
 document.getElementById("header-usuario").addEventListener("click", ()=>

@@ -1,10 +1,11 @@
 <?php
 session_start();
+// Código de IA
+// Limpia las cookies y la sesión
+// Da la posibilidad al usuario de cerrar sesión
 
-// Remove all session variables
 $_SESSION = [];
 
-// Destroy the session cookie
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -13,10 +14,8 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Destroy the session itself
 session_destroy();
 
-// Redirect to homepage or login
 header("Location: ../../index.php");
 exit;
 ?>
