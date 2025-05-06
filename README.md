@@ -15,5 +15,9 @@ Blog realizado con PHP.
 ## Tabla "posts"
 ![image](https://github.com/user-attachments/assets/6a7dbbed-3b23-43f5-b6af-2d38058ea313)
 
+## Registros
+![image](https://github.com/user-attachments/assets/88d889f3-7c24-42d6-b7a7-da6a918dce92)
+
+
 ## Tabla "usuarios"
 ![image](https://github.com/user-attachments/assets/e0afb7f1-3251-4757-bba5-7179b98045f2)
