@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $stmt->bind_param("sss", $titulo, $cuerpo, $autor);
 
     if ($stmt->execute()) {
-        echo "Post guardado correctamente.";
+        header("Location: ../../index.php");
     } else {
         echo "Error al guardar el post: " . $stmt->error;
     }
